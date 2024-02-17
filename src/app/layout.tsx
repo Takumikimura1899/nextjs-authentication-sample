@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ReactNode } from 'react';
 
 export default function RootLayout({
@@ -12,5 +13,10 @@ export default function RootLayout({
   );
 }
 
-const Header = () => <header>Header</header>;
+const Header = () => (
+  <header>
+    Header
+    <Link href='/'>return Home</Link>
+  </header>
+);
 const Footer = () => <footer>Footer</footer>;
