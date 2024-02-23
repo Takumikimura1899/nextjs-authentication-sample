@@ -17,7 +17,7 @@ export const authConfig = {
     GitHub,
     Credentials({
       credentials: { password: { label: 'Password', type: 'password' } },
-      authorize(c) {
+      async authorize(c) {
         if (c.password !== '1') return null;
         return {
           name: 'Fill Murray',
