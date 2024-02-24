@@ -12,7 +12,7 @@ export function SignIn(
   );
 }
 
-export function SignOut(props: any) {
+export function SignOut() {
   return (
     <form
       action={async () => {
@@ -21,9 +21,7 @@ export function SignOut(props: any) {
       }}
       className='w-full'
     >
-      <button variant='ghost' className='w-full p-0' {...props}>
-        Sign Out
-      </button>
+      <button className='px-2 py-1 rounded bg-red-500'>Sign Out</button>
     </form>
   );
 }
