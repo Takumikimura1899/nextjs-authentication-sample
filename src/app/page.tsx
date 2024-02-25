@@ -1,15 +1,18 @@
+import { auth } from '@/auth';
 import { LinkButton } from '@/components/ui/LinkButton';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth();
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <h1>main page</h1>
-      <div className='flex space-x-2'>
-        <LinkButton href='/my-page'>go to myPage</LinkButton>
+    <main className='flex min-h-screen flex-col items-center p-24'>
+      <h1 className='mb-12'>main page</h1>
+      {session ? (
+        <LinkButton href='/my-page'>myPage</LinkButton>
+      ) : (
         <LinkButton href='/login'>Login</LinkButton>
-      </div>
+      )}
     </main>
   );
 }

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ReactNode } from 'react';
 import './globals.css';
 import { auth } from '@/auth';
+import Image from 'next/image';
 
 export default async function RootLayout({
   children,
@@ -18,13 +19,18 @@ export default async function RootLayout({
 }
 const Header = async () => (
   <header>
-    <div className='flex mx-4'>
-      <div className='flex space-x-4'>
-        <h1>Header Logo</h1>
-        <nav>
-          <Link href='/'>Home</Link>
-        </nav>
-      </div>
+    <div className='flex mx-4 h-auto items-center'>
+      <nav>
+        <Link href='/'>
+          <Image
+            src='/logo.png
+          '
+            alt='topページへ'
+            height={40}
+            width={40}
+          />
+        </Link>
+      </nav>
       <UserInfo />
     </div>
   </header>
