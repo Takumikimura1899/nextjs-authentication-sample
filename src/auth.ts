@@ -17,9 +17,15 @@ export const authConfig = {
   providers: [
     GitHub,
     Credentials({
-      credentials: { password: { label: 'Password', type: 'password' } },
+      credentials: {
+        email: { label: 'Email', type: 'email' },
+        password: { label: 'Password', type: 'password' },
+      },
       async authorize(c) {
-        const user = await getUser(Number(c.password));
+        const user = await getUser({
+          email: c.email!.toString(),
+          password: c.password!.toString(),
+        });
         if (!user) return null;
         return {
           id: user.id.toString(),
